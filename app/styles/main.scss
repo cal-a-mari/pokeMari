@@ -12,8 +12,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
     #header-title {
         display: inline-block;
-        
+        font-size: 17px;
     }
+
     #header-list button, #header-search button {
         background: transparent;
         color: white;
@@ -29,5 +30,49 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
     #header-title {
         padding: 10px;
+    }
+}
+
+#poke-nav-pills {
+    padding: 10px;
+    ul {
+        margin: 0 auto;
+        display: block;
+        width: 92%;
+        font-size: 14px;
+        border: 1px solid $alizarin;
+        border-radius: 6px;
+        overflow: hidden;
+        li {
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+            border-left: 1px solid $alizarin;
+            a {
+                margin: 0px;
+                border-radius: 0px;
+                color: $alizarin;
+                background-color: transparent;
+            }
+        }
+
+        .active {
+            a {
+                background-color: $alizarin;
+                color: white;
+            }
+        }
+
+        .small-pill {
+            width: 20%;
+        }
+
+        .big-pill {
+            width: 30%;
+        }
+
+        .first-pill {
+            border: none;
+        }
     }
 }
