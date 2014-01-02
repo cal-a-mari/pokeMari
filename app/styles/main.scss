@@ -89,3 +89,59 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
         }
     }
 }
+
+#pokemon-info {
+    #pokemon-pic, #pokemon-desc {
+        height: 110px;
+    }
+    #pokemon-extras {
+        text-align: center;
+        border-bottom: 1px solid $silver;
+        .title {
+            font-weight: bold;
+            font-size: 17px;
+            color: $alizarin;
+            display: block;
+        }
+        .value {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 4px;
+        }
+    }
+    .pokemon-misc {
+        div {
+            margin-top: 13px;
+            font-size: 15px;
+        }
+        .title {
+            color: $alizarin;
+        }
+    }
+}
+
+#evolutions-section-container {
+    #evol-row {
+        height: 30px;
+        background-color: $alizarin;
+        padding: 3px;
+        padding-left: 13px;
+        color: white;
+        font-size: 16px;
+        margin: 10px 0px;
+    }
+    #evolutions {
+        height: 100px;
+    }
+}
+
+
+.row {
+    margin: 0px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
