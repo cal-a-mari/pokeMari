@@ -3,13 +3,16 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 @import '../styles/variables.scss';
 
-#app-header {
-    background-color: $alizarin;
-    height: 40px;
-    width: 100%;
-    text-align: center;
-    color: white;
 
+#app-header, #app-footer {
+    background-color: $alizarin;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+#app-header {
+    height: 40px;
     #header-title {
         display: inline-block;
         font-size: 17px;
@@ -33,12 +36,22 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     }
 }
 
+#app-footer {
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    #footer-credits {
+        padding: 20px;
+        display: block;
+    }
+}
+
 #poke-nav-pills {
     padding: 10px;
     ul {
         margin: 0 auto;
         display: block;
-        width: 92%;
+        width: 100%;
         font-size: 14px;
         border: 1px solid $alizarin;
         border-radius: 6px;
