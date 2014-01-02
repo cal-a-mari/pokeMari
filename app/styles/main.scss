@@ -37,7 +37,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 }
 
 #pokemon-img {
-    width: 100%;
+    width: 100px;
+    display: block;
+    margin: 0 auto;
 }
 
 #app-footer {
@@ -101,6 +103,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     #pokemon-extras {
         text-align: center;
         border-bottom: 1px solid $silver;
+        margin-top: 5px;
         .title {
             font-weight: bold;
             font-size: 17px;
