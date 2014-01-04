@@ -1,6 +1,50 @@
 #search-cont {
+	overflow-y: hidden !important;
     a {
         color: $alizarin;
         font-weight: bold;
     }
+    #search-cont {
+    	padding: 3px 15px;
+    	
+    	#search-icon {
+	    	display: inline-block;
+	    	color: $alizarin;
+    		width: 5%;
+    	}
+		#pokemon-search-field {
+	    	border: none;
+	    	border-radius: 0px;
+	    	width: 95%;
+	    	display: inline-block;
+	    	box-shadow: none !important;
+    	}    	
+    }
+    
+    
+    #pokemon-search-list {
+    	overflow-y: scroll;
+    	&::-webkit-scrollbar {
+    		display: none;
+    	}
+    	li {
+    		border-radius: 0px;
+    		margin-bottom: -1px;
+    	}
+    	a {
+    		border: none;
+    		display: block;
+    	}
+    	.badge {
+    		width: 25px;
+    		height: 25px;
+    		border-radius: 30px;
+    		padding-top: 6px;
+    	}
+    	#first-entry {
+    		border-top: none;
+    	}
+    }
+
+    
 }
