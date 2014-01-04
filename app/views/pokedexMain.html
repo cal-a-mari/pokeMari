@@ -1,10 +1,10 @@
 <div id="pokemon-info" class="row">
 	<div class="row">
 		<div id="pokemon-pic" class="col-xs-4">
-			<img id="pokemon-img" src="">
+			<img id="pokemon-img" src="{{'http://pokeapi.co' + pokemonSprite.image}}">
 		</div>
 		<div id="pokemon-desc" class="col-xs-8">
-			A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.
+			{{pokemonDesc.description}}
 		</div>
 	</div>
 
@@ -32,7 +32,7 @@
 			<span class="title">Height:</span> <span class="value">{{pokemonData.height}}'</span>
 		</div>
 		<div class="col-xs-6">
-			<span class="title">Type:</span> <span class="value">Fire/Flying</span>
+			<span class="title">Type:</span> <span class="value">{{pokemonType}}</span>
 		</div>
 	</div>
 
