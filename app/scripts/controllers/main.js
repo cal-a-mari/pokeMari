@@ -2,14 +2,10 @@
 
 angular.module('myPokedexApp')
 	.controller('MainCtrl', function ($scope, $routeParams, $http) {
-		$scope.awesomeThings = [
-			'HTML5 Boilerplate',
-			'AngularJS',
-			'Karma'
-		];
+		// FUNCTIONS
+		var getPokemonDesc, getPokemonSprite, getPokemonType;
 
 		var mainPokemonUrl = 'http://pokeapi.co/api/v1/pokemon/' + $routeParams.pokemonId;
-		
 
 		$http.get(mainPokemonUrl)
 		    .success(function (data, status, headers, config) {
@@ -24,11 +20,10 @@ angular.module('myPokedexApp')
 		});
 
 
-		var getPokemonDesc = function(data) {
+		getPokemonDesc = function(data) {
 			var pokemonDescUrl = 'http://pokeapi.co' + data.descriptions[0].resource_uri;
 			$http.get(pokemonDescUrl)
 			    .success(function (data, status, headers, config) {
-			        console.log("GOT IT");
 			        $scope.pokemonDesc = data;
 			    })
 			    .error(function (data, status, headers, config) {
@@ -36,11 +31,10 @@ angular.module('myPokedexApp')
 			});
 		};
 
-		var getPokemonSprite = function(data) {
+		getPokemonSprite = function(data) {
 			var pokemonSpriteUrl = 'http://pokeapi.co' + data.sprites[0].resource_uri;
 			$http.get(pokemonSpriteUrl)
 			    .success(function (data, status, headers, config) {
-			        console.log("GOT IT");
 			        $scope.pokemonSprite = data;
 			    })
 			    .error(function (data, status, headers, config) {
@@ -48,14 +42,17 @@ angular.module('myPokedexApp')
 			});
 		};
 		
-		var getPokemonType = function(data) {
-			var pokemonType = "";
-			var pokemonTypeList = data.types;
-			
-			for(var i = 0, len = pokemonTypeList.length; i < len; i++) {
-				pokemonType += pokemonTypeList[i].name + "/";
-			}
+		getPokemonType = function(data) {
+			var pokemonType, pokemonTypeList, currType, capFirstLetter;
+			pokemonType = "";
+			pokemonTypeList = data.types;
 
+			for(var i = 0, len = pokemonTypeList.length; i < len; i++) {
+				currType = pokemonTypeList[i].name + "/";
+				capFirstLetter = pokemonTypeList[i].name[0].toUpperCase();
+				currType = capFirstLetter + currType.slice(1, currType.length);
+				pokemonType += currType;
+			}
 
 			$scope.pokemonType = pokemonType.slice(0, pokemonType.length - 1);
 		}
