@@ -26,11 +26,19 @@ body {
     }
 
     #header-search {
-        float: right;
+        float: left;
+        margin-top: 5px;
+        a {
+            background: transparent;
+            border: none;
+            color: white;
+        }
     }
 
     #header-title {
         padding: 10px;
+        display: block;
+        margin: 0 auto;
     }
 }
 
