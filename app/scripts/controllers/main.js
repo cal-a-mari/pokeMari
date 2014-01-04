@@ -83,3 +83,11 @@ angular.module('myPokedexApp')
 		}
 
 	});
+
+angular.module('myPokedexApp')
+	.controller('SearchCtrl', function ($scope, $routeParams, $http) {
+		// FUNCTIONS
+		console.log('jo');
+
+	});
+

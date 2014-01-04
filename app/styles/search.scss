@@ -24,6 +24,7 @@
     
     #pokemon-search-list {
     	overflow-y: scroll;
+    	height: 300px;
     	&::-webkit-scrollbar {
     		display: none;
     	}

@@ -10,7 +10,7 @@ angular.module('myPokedexApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'views/search.html',
-        controller: 'MainCtrl'
+        controller: 'SearchCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
