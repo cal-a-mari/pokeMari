@@ -8,7 +8,7 @@ angular.module('myPokedexApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'MainCtrl'
       })

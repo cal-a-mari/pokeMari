@@ -3,16 +3,17 @@
 angular.module('myPokedexApp')
 	.controller('MainCtrl', function ($scope, $routeParams, $http) {
 		// FUNCTIONS
-		var getPokemonDesc, getPokemonSprite, getPokemonType;
+		var getPokemonDesc, getPokemonSprite, getPokemonType, getPokemonEvolution;
 
 		var mainPokemonUrl = 'http://pokeapi.co/api/v1/pokemon/' + $routeParams.pokemonId;
 
 		$http.get(mainPokemonUrl)
 		    .success(function (data, status, headers, config) {
-		        console.log(data);
+		        //console.log(data);
 		        $scope.pokemonData = data;
 		        getPokemonDesc(data);
 		        getPokemonSprite(data);
+		        getPokemonEvolutions(data);
 		    	getPokemonType(data);
 		    })
 		    .error(function (data, status, headers, config) {
@@ -55,6 +56,30 @@ angular.module('myPokedexApp')
 			}
 
 			$scope.pokemonType = pokemonType.slice(0, pokemonType.length - 1);
+		}
+
+		getPokemonEvolution = function(data) {
+			if(data.evolutions.length !== 0) {
+				$scope.levelUp = data.evolutions[0].level;
+				var nextPokemon = data.evolutions[0].resource_uri;
+				var nextPokemonUrl = 'http://pokeapi.co' + nextPokemon;
+
+				$http.get(nextPokemonUrl)
+				    .success(function (data, status, headers, config) {
+				        var pokemonSpriteUrl = 'http://pokeapi.co' + data.sprites[0].resource_uri;
+						$http.get(pokemonSpriteUrl)
+						    .success(function (data, status, headers, config) {
+						        $scope.pokemonEvoSprite = data;
+						    })
+						    .error(function (data, status, headers, config) {
+						        console.log('PokemonEVO Desc Data Fetch Failed');
+						});
+				    })
+				    .error(function (data, status, headers, config) {
+				        console.log('Pokemon Desc Data Fetch Failed');
+				});
+			}
+			
 		}
 
 	});

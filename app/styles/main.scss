@@ -38,10 +38,12 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 #pokemon-img {
     width: 100px;
+    height: 100px;
     display: block;
     margin: 0 auto;
-    border-radius: 50px;
+    border-radius: 60px;
     border: 3px solid $alizarin;
+    overflow: hidden;
 }
 
 #app-footer {
@@ -141,6 +143,29 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     }
     #evolutions {
         height: 100px;
+        width: 260px;
+        margin: 0 auto; 
+    }
+
+    .levelLabelCont, img {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        float: left;
+    }
+
+    .levelLabelCont {
+        width: 60px;
+        color: $alizarin;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        .levelLabel {
+            margin-top: 28px;
+        }
+        span {
+            display: block;
+        }
     }
 }
 
@@ -162,4 +187,14 @@ a {
 #appDescription {
     margin-top: 5px;
     padding: 15px;
+    a {
+        font-weight: bold;
+        color: $alizarin;
+    }
+}
+
+footer {
+    a {
+        font-weight: bold !important;
+    }
 }
