@@ -54,7 +54,10 @@
 }
 
 #pokemon-info {
-    #pokemon-pic, #pokemon-desc {
+    #pokemon-pic-desc-row {
+        margin: 15px 0px;
+    }
+    #pokemon-pic{
         height: 110px;
     }
     #pokemon-extras {
@@ -85,6 +88,7 @@
 }
 
 #evolutions-section-container {
+    height: 230px;
     #evol-row {
         height: 30px;
         background-color: $alizarin;

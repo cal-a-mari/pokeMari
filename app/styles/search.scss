@@ -1,5 +1,4 @@
 #search-cont {
-	overflow-y: hidden !important;
     a {
         color: $alizarin;
         font-weight: bold;
@@ -24,13 +23,15 @@
     
     #pokemon-search-list {
     	overflow-y: scroll;
-    	height: 300px;
+    	height: 360px;
     	&::-webkit-scrollbar {
     		display: none;
     	}
     	li {
     		border-radius: 0px;
     		margin-bottom: -1px;
+            border-left: none;
+            border-right: none;
     	}
     	a {
     		border: none;
@@ -42,9 +43,9 @@
     		border-radius: 30px;
     		padding-top: 6px;
     	}
-    	#first-entry {
-    		border-top: none;
-    	}
+        .pokemon-num {
+            color: #999;
+        }
     }
 
     

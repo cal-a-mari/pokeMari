@@ -3,25 +3,12 @@
 	  <span id="header-title">Pokedex</span>
 	</header>
 	<div id="search-cont">
-		<span id="search-icon" class="glyphicon glyphicon-search"></span><input id="pokemon-search-field" type="text" class="form-control" placeholder="Search">
+		<span id="search-icon" class="glyphicon glyphicon-search"></span><input ng-model="pokemonSearch" id="pokemon-search-field" type="text" class="form-control" placeholder="Search Pokemon">
 	</div>
 
 	<ul id="pokemon-search-list" class="list-group">
-	  <a href="#/1"><li id="first-entry" class="list-group-item">Bulbasaur<span class="badge">10</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Ivysaur<span class="badge">1</span></li></a>
-	  <a href="#/1"><li class="list-group-item">Venosaur<span class="badge">1</span></li></a>
+	  <a ng-repeat="pokemon in pokemonList | filter: pokemonSearch" href="#/{{pokemon.num}}"><li class="list-group-item">{{pokemon.name}}<span class="pull-right pokemon-num">{{pokemon.num}}</span></li></a>
+	  
 
 	</ul>
 </div>
