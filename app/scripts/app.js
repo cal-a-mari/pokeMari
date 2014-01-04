@@ -12,6 +12,10 @@ angular.module('myPokedexApp', [
         templateUrl: 'views/about.html',
         controller: 'MainCtrl'
       })
+      .when('/:pokemonId', {
+        templateUrl: 'views/pokedexMain.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

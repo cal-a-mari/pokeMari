@@ -1,7 +1,7 @@
 <div id="pokemon-info" class="row">
 	<div class="row">
 		<div id="pokemon-pic" class="col-xs-4">
-			<img id="pokemon-img" src="myImage">
+			<img id="pokemon-img" src="">
 		</div>
 		<div id="pokemon-desc" class="col-xs-8">
 			A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.
@@ -11,25 +11,25 @@
 	<div id="pokemon-extras" class="row">
 		<div class="col-xs-3">
 			<span class="title">ID</span>
-			<span class="value">1</span>
+			<span class="value">{{pokemonData.pkdx_id}}</span>
+		</div>
+		<div class="col-xs-3">
+			<span class="title">HP</span>
+			<span class="value">{{pokemonData.hp}}</span>
 		</div>
 		<div class="col-xs-3">
 			<span class="title">ATTK</span>
-			<span class="value">70</span>
+			<span class="value">{{pokemonData.attack}}</span>
 		</div>
 		<div class="col-xs-3">
 			<span class="title">DEF</span>
-			<span class="value">51</span>
-		</div>
-		<div class="col-xs-3">
-			<span class="title">SPD</span>
-			<span class="value">78</span>
+			<span class="value">{{pokemonData.defense}}</span>
 		</div>
 	</div>
 
 	<div class="pokemon-misc row">
 		<div class="col-xs-6">
-			<span class="title">Height:</span> <span class="value">5'09"</span>
+			<span class="title">Height:</span> <span class="value">{{pokemonData.height}}'</span>
 		</div>
 		<div class="col-xs-6">
 			<span class="title">Type:</span> <span class="value">Fire/Flying</span>
@@ -38,10 +38,10 @@
 
 	<div class="pokemon-misc row">
 		<div class="col-xs-6">
-			<span class="title">Weight:</span> <span class="value">199.5lbs</span>
+			<span class="title">Weight:</span> <span class="value">{{pokemonData.weight}}lbs</span>
 		</div>
 		<div class="col-xs-6">
-			<span class="title">Rarity:</span> <span class="value">None</span>
+			<span class="title">Catch Rate:</span> <span class="value">{{pokemonData.catch_rate}}</span>
 		</div>
 	</div>
 </div>
