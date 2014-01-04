@@ -13,7 +13,7 @@ angular.module('myPokedexApp')
 		        $scope.pokemonData = data;
 		        getPokemonDesc(data);
 		        getPokemonSprite(data);
-		        getPokemonEvolutions(data);
+		        getPokemonEvolution(data);
 		    	getPokemonType(data);
 		    })
 		    .error(function (data, status, headers, config) {

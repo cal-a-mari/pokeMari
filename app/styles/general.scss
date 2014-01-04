@@ -1,0 +1,61 @@
+#app-header, #app-footer {
+    background-color: $alizarin;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+#app-header {
+    height: 40px;
+    #header-title {
+        display: inline-block;
+        font-size: 17px;
+    }
+
+    #header-list button, #header-search button {
+        background: transparent;
+        color: white;
+        border: transparent;
+        display: inline-block;
+        float: left;
+        padding: 11px;
+    }
+
+    #header-search {
+        float: right;
+    }
+
+    #header-title {
+        padding: 10px;
+    }
+}
+
+.row {
+    margin: 0px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+a {
+    color: white;
+}
+
+#app-footer {
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    #footer-credits {
+        padding: 20px;
+        display: block;
+    }
+}
+
+footer {
+    a {
+        font-weight: bold !important;
+    }
+}
