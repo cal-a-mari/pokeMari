@@ -4,7 +4,8 @@ angular.module('myPokedexApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'pokedexAnimations'
 ])
   .config(function ($routeProvider) {
     $routeProvider
