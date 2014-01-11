@@ -1,11 +1,10 @@
 'use strict';
 
-angular.module('myPokedexApp', [
+angular.module('pokeMariApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute',
-  'pokedexAnimations'
+  'ngRoute'
 ])
   .config(function ($routeProvider) {
     $routeProvider

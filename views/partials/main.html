@@ -1,0 +1,12 @@
+<div id="search-cont">
+  <header id="app-header">
+    <span id="header-title">Pokedex</span>
+  </header>
+  <div id="search-cont">
+    <span id="search-icon" class="glyphicon glyphicon-search"></span><input ng-model="pokemonSearch" id="pokemon-search-field" type="text" class="form-control" placeholder="Search Pokemon">
+  </div>
+
+  <ul id="pokemon-search-list" class="list-group">
+    <a ng-repeat="pokemon in pokemonList | filter: pokemonSearch" href="#/{{pokemon.num}}"><li class="list-group-item">{{pokemon.name}}<span class="pull-right pokemon-num">{{pokemon.num}}</span></li></a>
+  </ul>
+</div>
