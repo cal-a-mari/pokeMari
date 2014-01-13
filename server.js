@@ -24,7 +24,7 @@ var api = require('./lib/controllers/api'),
 	index = require('./lib/controllers');
 
 // Server Routes
-app.get('/api/getPokemonInfo/:id', api.getPokemonInfo);
+app.get('/api/:pokeApi/:id', api.pokeApi);
 
 
 // Angular Routes

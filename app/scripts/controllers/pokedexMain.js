@@ -5,7 +5,7 @@ angular.module('pokeMariApp')
 		// FUNCTIONS
 		var getPokemonDesc, getPokemonSprite, getPokemonType, getPokemonEvolution;
 
-		var mainPokemonUrl = 'api/getPokemonInfo/' + $routeParams.pokemonId;
+		var mainPokemonUrl = 'api/pokemon/' + $routeParams.pokemonId;
 		
 		$http.get(mainPokemonUrl)
 			.success(function (data, status, headers, config) {
@@ -22,9 +22,16 @@ angular.module('pokeMariApp')
 
 
 		getPokemonDesc = function(data) {
-			var pokemonDescUrl = 'api/getPokemonInfo/' + data.descriptions[0].resource_uri;
+			var resourceUri, pokemonId, pokemonDescUrl;
+			resourceUri = data.descriptions[0].resource_uri;
+			resourceUri = resourceUri.substr(resourceUri.length - 10);
+			//console.log("resourceUri: " + resourceUri);
+			pokemonId = resourceUri.replace(/\D/g,'');
+			//console.log("pokemonId: " + pokemonId);
+			pokemonDescUrl = 'api/description/' + pokemonId;
 			$http.get(pokemonDescUrl)
 				.success(function (data, status, headers, config) {
+					console.log(data);
 					$scope.pokemonDesc = data;
 				})
 				.error(function (data, status, headers, config) {
@@ -33,7 +40,12 @@ angular.module('pokeMariApp')
 		};
 
 		getPokemonSprite = function(data) {
-			var pokemonSpriteUrl = 'api/getPokemonInfo/' + data.sprites[0].resource_uri;
+			var resourceUri, pokemonId, pokemonSpriteUrl;
+			resourceUri = data.sprites[0].resource_uri;
+			resourceUri = resourceUri.substr(resourceUri.length - 10);
+			pokemonId = resourceUri.replace(/\D/g,'');
+			//console.log("pokemonId: " + pokemonId);
+			var pokemonSpriteUrl = 'api/sprite/' + pokemonId;
 			$http.get(pokemonSpriteUrl)
 				.success(function (data, status, headers, config) {
 					$scope.pokemonSprite = data;
@@ -61,15 +73,28 @@ angular.module('pokeMariApp')
 		getPokemonEvolution = function(data) {
 			if(data.evolutions.length !== 0) {
 				$scope.levelUp = data.evolutions[0].level;
-				var nextPokemon = data.evolutions[0].resource_uri;
-				var nextPokemonUrl = 'api/getPokemonInfo/' + nextPokemon;
+				var resourceUri, pokemonId, nextPokemonUrl;
+				resourceUri = data.evolutions[0].resource_uri;
+				resourceUri = resourceUri.substr(resourceUri.length - 10);
+				pokemonId = resourceUri.replace(/\D/g,'');
+				
+				nextPokemonUrl = 'api/pokemon/' + pokemonId;
+				console.log("nextPokemonUrl: " + pokemonId);
 
 				$http.get(nextPokemonUrl)
 					.success(function (data, status, headers, config) {
-						var pokemonSpriteUrl = 'api/getPokemonInfo/' + data.sprites[0].resource_uri;
-						$http.get(pokemonSpriteUrl)
+						console.log("data from nextPokemonUrl:");
+						console.log(data);
+						var evoResourceUri, evoPokemonSpriteUrl, evoPokemonId;
+						evoResourceUri = data.sprites[0].resource_uri;
+						evoResourceUri = evoResourceUri.substr(evoResourceUri.length - 10);
+						evoPokemonId = evoResourceUri.replace(/\D/g,'');
+						evoPokemonSpriteUrl = 'api/sprite/' + evoPokemonId;
+						console.log("pokemonSpriteUrl: " + evoPokemonSpriteUrl);
+						$http.get(evoPokemonSpriteUrl)
 							.success(function (data, status, headers, config) {
 								$scope.pokemonEvoSprite = data;
+								console.log(data);
 							})
 							.error(function (data, status, headers, config) {
 								console.log('PokemonEVO Desc Data Fetch Failed');
