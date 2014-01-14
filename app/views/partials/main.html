@@ -1,12 +1,21 @@
-<div id="search-cont">
-  <header id="app-header">
-    <span id="header-title">Pokedex</span>
-  </header>
-  <div id="search-cont">
-    <span id="search-icon" class="glyphicon glyphicon-search"></span><input ng-model="pokemonSearch" id="pokemon-search-field" type="text" class="form-control" placeholder="Search Pokemon">
-  </div>
+<div ng-include="'partials/navbar'"></div>
 
-  <ul id="pokemon-search-list" class="list-group">
-    <a ng-repeat="pokemon in pokemonList | filter: pokemonSearch" href="#/{{pokemon.num}}"><li class="list-group-item">{{pokemon.name}}<span class="pull-right pokemon-num">{{pokemon.num}}</span></li></a>
-  </ul>
+<div class="jumbotron">
+  <h1>'Allo, 'Allo!</h1>
+  <p class="lead">
+    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    Always a pleasure scaffolding your apps.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="thing in awesomeThings">
+      <h4>{{thing.name}}</h4>
+      <p>{{thing.info}}</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>♥ from the Yeoman team</p>
 </div>

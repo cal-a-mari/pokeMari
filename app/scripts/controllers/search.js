@@ -1,3 +1,4 @@
+'use strict';
 angular.module('pokeMariApp')
 	.controller('SearchCtrl', function ($scope, $routeParams, $http) {
 		
