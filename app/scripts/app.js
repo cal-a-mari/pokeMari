@@ -9,15 +9,15 @@ angular.module('pokeMariApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/search.html',
+        templateUrl: 'partials/search',
         controller: 'SearchCtrl'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: 'partials/about',
         controller: 'AboutCtrl'
       })
       .when('/:pokemonId', {
-        templateUrl: 'views/pokedexMain.html',
+        templateUrl: 'partials/pokedexMain',
         controller: 'PokedexMainCtrl'
       })
       .otherwise({
