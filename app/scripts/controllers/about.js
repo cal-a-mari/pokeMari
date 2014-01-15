@@ -1,3 +1,3 @@
 angular.module('pokeMariApp')
-	.controller('AboutCtrl', function ($scope, $routeParams, $http) {
-	});
+	.controller('AboutCtrl', ['$scope', '$http', function ($scope, $routeParams, $http) {
+	}]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pokeMariApp')
-	.controller('PokedexMainCtrl', function ($scope, $routeParams, $http) {
+	.controller('PokedexMainCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
 		// FUNCTIONS
 		var getPokemonDesc, getPokemonSprite, getPokemonType, getPokemonEvolution;
 
@@ -25,9 +25,9 @@ angular.module('pokeMariApp')
 			var resourceUri, pokemonId, pokemonDescUrl;
 			resourceUri = data.descriptions[0].resource_uri;
 			resourceUri = resourceUri.substr(resourceUri.length - 10);
-			//console.log("resourceUri: " + resourceUri);
+			//console.log('resourceUri: ' + resourceUri);
 			pokemonId = resourceUri.replace(/\D/g,'');
-			//console.log("pokemonId: " + pokemonId);
+			//console.log('pokemonId: ' + pokemonId);
 			pokemonDescUrl = 'api/description/' + pokemonId;
 			$http.get(pokemonDescUrl)
 				.success(function (data, status, headers, config) {
@@ -44,8 +44,8 @@ angular.module('pokeMariApp')
 			resourceUri = data.sprites[0].resource_uri;
 			resourceUri = resourceUri.substr(resourceUri.length - 10);
 			pokemonId = resourceUri.replace(/\D/g,'');
-			//console.log("pokemonId: " + pokemonId);
-			var pokemonSpriteUrl = 'api/sprite/' + pokemonId;
+			//console.log('pokemonId: ' + pokemonId);
+			pokemonSpriteUrl = 'api/sprite/' + pokemonId;
 			$http.get(pokemonSpriteUrl)
 				.success(function (data, status, headers, config) {
 					$scope.pokemonSprite = data;
@@ -57,18 +57,18 @@ angular.module('pokeMariApp')
 		
 		getPokemonType = function(data) {
 			var pokemonType, pokemonTypeList, currType, capFirstLetter;
-			pokemonType = "";
+			pokemonType = '';
 			pokemonTypeList = data.types;
 
 			for(var i = 0, len = pokemonTypeList.length; i < len; i++) {
-				currType = pokemonTypeList[i].name + "/";
+				currType = pokemonTypeList[i].name + '/';
 				capFirstLetter = pokemonTypeList[i].name[0].toUpperCase();
 				currType = capFirstLetter + currType.slice(1, currType.length);
 				pokemonType += currType;
 			}
 
 			$scope.pokemonType = pokemonType.slice(0, pokemonType.length - 1);
-		}
+		};
 
 		getPokemonEvolution = function(data) {
 			if(data.evolutions.length !== 0) {
@@ -79,18 +79,18 @@ angular.module('pokeMariApp')
 				pokemonId = resourceUri.replace(/\D/g,'');
 				
 				nextPokemonUrl = 'api/pokemon/' + pokemonId;
-				// console.log("nextPokemonUrl: " + pokemonId);
+				// console.log('nextPokemonUrl: ' + pokemonId);
 
 				$http.get(nextPokemonUrl)
 					.success(function (data, status, headers, config) {
-						// console.log("data from nextPokemonUrl:");
+						// console.log('data from nextPokemonUrl:');
 						// console.log(data);
 						var evoResourceUri, evoPokemonSpriteUrl, evoPokemonId;
 						evoResourceUri = data.sprites[0].resource_uri;
 						evoResourceUri = evoResourceUri.substr(evoResourceUri.length - 10);
 						evoPokemonId = evoResourceUri.replace(/\D/g,'');
 						evoPokemonSpriteUrl = 'api/sprite/' + evoPokemonId;
-						// console.log("pokemonSpriteUrl: " + evoPokemonSpriteUrl);
+						// console.log('pokemonSpriteUrl: ' + evoPokemonSpriteUrl);
 						$http.get(evoPokemonSpriteUrl)
 							.success(function (data, status, headers, config) {
 								$scope.pokemonEvoSprite = data;
@@ -105,8 +105,8 @@ angular.module('pokeMariApp')
 				});
 			}
 			
-		}
+		};
 
-	});
+	}]);
 
 
